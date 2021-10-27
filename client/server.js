@@ -15,12 +15,20 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get("/list", (req, res) => {
-    res.sendFile(__dirname + '/stock_list.html');
+app.get("/order", (req, res) => {
+    res.sendFile(__dirname + '/order.html');
 });
 
-app.get("/search", (req, res) => {
-    res.sendFile(__dirname + '/stock_search.html');
+app.get("/customer", (req, res) => {
+    res.sendFile(__dirname + '/customer.html');
+});
+
+app.get("/affiliation", (req, res) => {
+    res.sendFile(__dirname + '/affiliation.html');
+});
+
+app.get("/drink", (req, res) => {
+    res.sendFile(__dirname + '/drink.html');
 });
 
 app.listen(PORT, () => {
