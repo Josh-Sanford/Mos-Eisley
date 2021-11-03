@@ -3,11 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <title>Affiliations</title>
-    <meta name="description" content="Home Page">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>Affiliations</title>
+  <meta name="description" content="Home Page">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/~sanfojos/style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <!-- Navbar -->
@@ -18,51 +21,62 @@
   <a href="/~sanfojos/order" class="w3-bar-item w3-button w3-hide-small ">Orders</a>
   <a href="/~sanfojos/affiliation" class="w3-bar-item w3-button w3-hide-small ">Affiliations</a>
   <a href="/~sanfojos/drink" class="w3-bar-item w3-button w3-hide-small ">Drinks</a>
-  </div>
+</div>
 
 
 <body>
-<br>
-    <div class="w3-container">
-        <h2>Centering a Column</h2>
-      
-        <table class="w3-table-all">
-          <tr>
-            <th>galactic_id</th>
-            <th>affiliation_id</th>
-            <th>rebel</th>
-            <th>empire</th>
-            <th>bounty_hunter</th>
-            <th>smuggler</th>
-          </tr>
-          <tr>
-            <td>1451651561</td>
-            <td>1354165153</td>
-            <td>false</td>
-            <td>false</td>
-            <td>false</td>
-            <td>true</td>
-          </tr>
-        </table>
+  <br>
+  <div class="w3-container">
+    <h2>Affiliation</h2>
+
+    <table class="w3-table-all">
+      <tr>
+        <th>galactic_id</th>
+        <th>affiliation_id</th>
+        <th>rebel</th>
+        <th>empire</th>
+        <th>bounty_hunter</th>
+        <th>smuggler</th>
+        <th>
+          <div class="search-container">
+            <form action="#">
+              <input type="text" placeholder="Search" name="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </th>
+      </tr>
+      <tr>
+        <td>1451651561</td>
+        <td>1354165153</td>
+        <td>false</td>
+        <td>false</td>
+        <td>false</td>
+        <td>true</td>
+        <td>
+          <button type="submit"><i class="fa fa-trash"></i></button>
+          <button type="submit"><i class="fa fa-edit"></i></button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <div class="w3-container form">
+    <form class=" w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>galactic_id</label>
+        <input class="w3-input" type="number" name="Name" required>
       </div>
-      <br>
-      <div class="w3-container">
-    <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
-        <div class="w3-section">      
-          <label>galactic_id</label>
-          <input class="w3-input" type="number" name="Name" required>
-        </div>
-        <input class="w3-check" type="checkbox"  name="Like">
-        <label>rebel</label>
-        <input class="w3-check" type="checkbox"  name="12oz">
-        <label>empire</label>
-        <input class="w3-check" type="checkbox"  name="12oz">
-        <label>bounty hunter</label>
-        <input class="w3-check" type="checkbox"  name="12oz">
-        <label>smuggler</label>
-        <button type="submit" class="w3-button w3-right w3-theme">Send</button>
-        </form>
-        </div>
+      <input class="w3-check" type="checkbox" name="Like">
+      <label>rebel</label>
+      <input class="w3-check" type="checkbox" name="12oz">
+      <label>empire</label>
+      <input class="w3-check" type="checkbox" name="12oz">
+      <label>bounty hunter</label>
+      <input class="w3-check" type="checkbox" name="12oz">
+      <label>smuggler</label>
+      <button type="submit" class="w3-button w3-right w3-theme">Send</button>
+    </form>
+  </div>
 </body>
 
 </html>

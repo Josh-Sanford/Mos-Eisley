@@ -1,0 +1,12 @@
+.form form{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 1em;
+}
+div.form
+{
+    display: block;
+    text-align: center;
+}
