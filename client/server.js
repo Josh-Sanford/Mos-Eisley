@@ -31,6 +31,14 @@ app.get("/drink", (req, res) => {
     res.sendFile(__dirname + '/drink.html');
 });
 
+app.get("/customer_order", (req, res) => {
+    res.sendFile(__dirname + '/customer_order.html');
+});
+
+app.get("/drink_order", (req, res) => {
+    res.sendFile(__dirname + '/drink_order.html');
+});
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
 });
