@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2021 at 06:39 PM
+-- Generation Time: Nov 17, 2021 at 01:43 AM
 -- Server version: 10.4.21-MariaDB-log
 -- PHP Version: 7.4.23
 
@@ -24,9 +24,9 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `affiliations`
+-- Table structure for table `Affiliations`
 --
-
+DROP TABLE IF EXISTS `Affiliations`;
 CREATE TABLE `Affiliations` (
   `id` int(11) NOT NULL,
   `galactic_id` int(11) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `Affiliations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `affiliations`
+-- Dumping data for table `Affiliations`
 --
 
 INSERT INTO `Affiliations` (`id`, `galactic_id`, `affiliation`) VALUES
@@ -50,9 +50,9 @@ INSERT INTO `Affiliations` (`id`, `galactic_id`, `affiliation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `Customers`
 --
-
+DROP TABLE IF EXISTS `Customers`;
 CREATE TABLE `Customers` (
   `galactic_id` int(11) NOT NULL,
   `customer_name` varchar(255) DEFAULT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `Customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `Customers`
 --
 
 INSERT INTO `Customers` (`galactic_id`, `customer_name`, `species`, `planet`, `bounty`) VALUES
@@ -75,16 +75,16 @@ INSERT INTO `Customers` (`galactic_id`, `customer_name`, `species`, `planet`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_order`
+-- Table structure for table `Customer_Orders`
 --
-
+DROP TABLE IF EXISTS `Customer_Orders`;
 CREATE TABLE `Customer_Orders` (
   `galactic_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `customer_order`
+-- Dumping data for table `Customer_Orders`
 --
 
 INSERT INTO `Customer_Orders` (`galactic_id`, `order_id`) VALUES
@@ -98,9 +98,9 @@ INSERT INTO `Customer_Orders` (`galactic_id`, `order_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drinks`
+-- Table structure for table `Drinks`
 --
-
+DROP TABLE IF EXISTS `Drinks`;
 CREATE TABLE `Drinks` (
   `drink_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE `Drinks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `drinks`
+-- Dumping data for table `Drinks`
 --
 
 INSERT INTO `Drinks` (`drink_id`, `name`, `size`, `credits`) VALUES
@@ -121,16 +121,16 @@ INSERT INTO `Drinks` (`drink_id`, `name`, `size`, `credits`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drink_order`
+-- Table structure for table `Drink_Orders`
 --
-
+DROP TABLE IF EXISTS `Drink_Orders`;
 CREATE TABLE `Drink_Orders` (
   `drink_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `drink_order`
+-- Dumping data for table `Drink_Orders`
 --
 
 INSERT INTO `Drink_Orders` (`drink_id`, `order_id`) VALUES
@@ -146,16 +146,16 @@ INSERT INTO `Drink_Orders` (`drink_id`, `order_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Table structure for table `Orders`
 --
-
+DROP TABLE IF EXISTS `Orders`;
 CREATE TABLE `Orders` (
   `order_id` int(11) NOT NULL,
   `balance` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `Orders`
 --
 
 INSERT INTO `Orders` (`order_id`, `balance`) VALUES
@@ -169,41 +169,41 @@ INSERT INTO `Orders` (`order_id`, `balance`) VALUES
 --
 
 --
--- Indexes for table `affiliations`
+-- Indexes for table `Affiliations`
 --
 ALTER TABLE `Affiliations`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `affiliations_ibfk_1` (`galactic_id`);
+  ADD KEY `galactic_id` (`galactic_id`);
 
 --
--- Indexes for table `customers`
+-- Indexes for table `Customers`
 --
 ALTER TABLE `Customers`
   ADD PRIMARY KEY (`galactic_id`);
 
 --
--- Indexes for table `customer_order`
+-- Indexes for table `Customer_Orders`
 --
 ALTER TABLE `Customer_Orders`
   ADD PRIMARY KEY (`galactic_id`,`order_id`),
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `drinks`
+-- Indexes for table `Drinks`
 --
 ALTER TABLE `Drinks`
   ADD PRIMARY KEY (`drink_id`),
   ADD UNIQUE KEY `name` (`name`);
 
 --
--- Indexes for table `drink_order`
+-- Indexes for table `Drink_Orders`
 --
 ALTER TABLE `Drink_Orders`
   ADD PRIMARY KEY (`drink_id`,`order_id`),
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `Orders`
 --
 ALTER TABLE `Orders`
   ADD PRIMARY KEY (`order_id`);
@@ -213,52 +213,28 @@ ALTER TABLE `Orders`
 --
 
 --
--- AUTO_INCREMENT for table `affiliations`
+-- AUTO_INCREMENT for table `Affiliations`
 --
 ALTER TABLE `Affiliations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT for table `Customers`
 --
 ALTER TABLE `Customers`
   MODIFY `galactic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `drinks`
+-- AUTO_INCREMENT for table `Drinks`
 --
 ALTER TABLE `Drinks`
   MODIFY `drink_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `Orders`
 --
 ALTER TABLE `Orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `affiliations`
---
-ALTER TABLE `Affiliations`
-  ADD CONSTRAINT `affiliations_ibfk_1` FOREIGN KEY (`galactic_id`) REFERENCES `customers` (`galactic_id`);
-
---
--- Constraints for table `customer_order`
---
-ALTER TABLE `Customer_Orders`
-  ADD CONSTRAINT `customer_order_ibfk_1` FOREIGN KEY (`galactic_id`) REFERENCES `customers` (`galactic_id`),
-  ADD CONSTRAINT `customer_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
-
---
--- Constraints for table `drink_order`
---
-ALTER TABLE `Drink_Orders`
-  ADD CONSTRAINT `drink_order_ibfk_1` FOREIGN KEY (`drink_id`) REFERENCES `drinks` (`drink_id`),
-  ADD CONSTRAINT `drink_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
