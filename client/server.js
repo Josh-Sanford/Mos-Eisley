@@ -4,12 +4,16 @@
 const PORT = 3000;
 
 const express = require("express");
+var mysql = require('./dbcon.js');
+var bodyParser = require('body-parser');
 const app = express();
 
 
 app.use(express.urlencoded({
     extended: true
 }));
+
+app.set('mysql', mysql);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -39,6 +43,6 @@ app.get("/drink_order", (req, res) => {
     res.sendFile(__dirname + '/drink_order.html');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
-});
+app.listen(app.get('port'), function(){
+    console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+  });
