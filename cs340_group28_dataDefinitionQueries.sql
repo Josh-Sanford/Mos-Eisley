@@ -235,6 +235,30 @@ ALTER TABLE `Drinks`
 --
 ALTER TABLE `Orders`
   MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Affiliations`
+--
+ALTER TABLE `Affiliations`
+  ADD CONSTRAINT `Affiliations_ibfk_1` FOREIGN KEY (`galactic_id`) REFERENCES `Customers` (`galactic_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Customer_Orders`
+--
+ALTER TABLE `Customer_Orders`
+  ADD CONSTRAINT `Customer_Orders_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Customer_Orders_ibfk_2` FOREIGN KEY (`galactic_id`) REFERENCES `Customers` (`galactic_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Drink_Orders`
+--
+ALTER TABLE `Drink_Orders`
+  ADD CONSTRAINT `Drink_Orders_ibfk_1` FOREIGN KEY (`drink_id`) REFERENCES `Drinks` (`drink_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Drink_Orders_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `Orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
