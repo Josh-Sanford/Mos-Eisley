@@ -1,11 +1,17 @@
 'use strict';
 
 // NOTE: Don't change the port number
-const PORT = 3000;
+const PORT = 8001;
 
 var express = require('express');
-var mysql = require('./database/dbcon');
+var mysql = require('./database/dbcon.js');
 var bodyParser = require('body-parser');
+
+const util = require('util');
+require('util.promisify').shim();
+
+const fs = require('fs');
+const readFileAsync = util.promisify(fs.readFile);
 
 var app = express();
 var handlebars = require('express-handlebars').create({
