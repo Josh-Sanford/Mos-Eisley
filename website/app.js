@@ -26,27 +26,17 @@ app.get('/', function (req, res) {
     res.render('index');
 });
 
-app.get("/order", function(req, res){
-    res.render('order');
-});
+app.use('/order', require('./order.js'));
 
 app.use('/customer', require('./customer.js'));
 
-app.get("/affiliation", function(req, res){
-    res.render('affiliation');
-});
+app.use('/affiliation', require('./affiliation.js'));
 
-app.get("/drink", function(req, res){
-    res.render('drink');
-});
+app.use('/drink', require('./drink.js'));
 
-app.get("/customer_order", function(req, res){
-    res.render('customer_order');
-});
+app.use('/customer_order', require('./customer_order.js'));
 
-app.get("/drink_order", function(req, res){
-    res.render('drink_order');
-});
+app.use('/drink_order', require('./drink_order.js'));
 
 app.use(function(req,res){
     res.status(404);

@@ -13,21 +13,25 @@
             </form>
         </th>
       </tr>
-      <tr>
-        <td>500141205</td>
-        <td>1440161</td>
-        <td>
-          <button type="submit"><i class="fa fa-trash"></i></button>
-          <button type="submit"><i class="fa fa-edit"></i></button>
-        </td>
-      </tr>
+      <tbody>
+        {{#each customers_order_info}}
+        <tr>
+            <td>{{this.galactic_id}}</td>
+            <td>{{this.order_id}}</td>
+            <td>
+                <button onclick="#" type="button"><i class="fa fa-trash"></i></button>
+                <button onclick="#" type="button"><i class="fa fa-edit"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
     </table>
   </div>
 
   <br>
   
   <div class="w3-container form">
-    <form class=" w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+    <form class=" w3-card-4 w3-padding-16 w3-white" action="/customer_order" method="POST">
       <div class="w3-section">
         <label>Galactic ID's</label>
         <input class="w3-input" type="text" name="Name" required>

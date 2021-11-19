@@ -6,10 +6,7 @@
       <tr>
         <th>galactic_id</th>
         <th>affiliation_id</th>
-        <th>rebel</th>
-        <th>empire</th>
-        <th>bounty_hunter</th>
-        <th>smuggler</th>
+        <th>affiliation</th>
         <th>
           <div class="search-container">
             <form action="#">
@@ -18,35 +15,34 @@
             </form>
         </th>
       </tr>
-      <tr>
-        <td>1451651561</td>
-        <td>1354165153</td>
-        <td>false</td>
-        <td>false</td>
-        <td>false</td>
-        <td>true</td>
-        <td>
-          <button type="submit"><i class="fa fa-trash"></i></button>
-          <button type="submit"><i class="fa fa-edit"></i></button>
-        </td>
-      </tr>
+      <tbody>
+        {{#each affiliation_info}}
+        <tr>
+            <td>{{this.galactic_id}}</td>
+            <td>{{this.id}}</td>
+            <td>{{this.affiliation}}</td>
+            <td>
+                <button onclick="#" type="button"><i class="fa fa-trash"></i></button>
+                <button onclick="#" type="button"><i class="fa fa-edit"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
     </table>
   </div>
   <br>
   <div class="w3-container form">
-    <form class=" w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+    <form class=" w3-card-4 w3-padding-16 w3-white" action="/affiliation"  method="POST">
       <div class="w3-section">
         <label>galactic_id</label>
-        <input class="w3-input" type="number" name="Name" required>
+        <input class="w3-input" type="number" name="galactic_id" required>
       </div>
-      <input class="w3-check" type="checkbox" name="Like">
-      <label>rebel</label>
-      <input class="w3-check" type="checkbox" name="12oz">
-      <label>empire</label>
-      <input class="w3-check" type="checkbox" name="12oz">
-      <label>bounty hunter</label>
-      <input class="w3-check" type="checkbox" name="12oz">
-      <label>smuggler</label>
+      <select name="affiliation" id="row" required>
+                  <option value="rebel">rebel</option>
+                  <option value="empire">empire</option>
+                  <option value="bounty_hunter">bounty hunter</option>
+                  <option value="smuggler">smuggler</option>
+                </select>
       <button type="submit" class="w3-button w3-right w3-theme">Send</button>
     </form>
   </div>

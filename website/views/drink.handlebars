@@ -4,11 +4,10 @@
       
         <table class="w3-table-all">
           <tr>
-            <th>id</th>
-            <th>order_id</th>
+            <th>drink_id</th>
             <th>name</th>
             <th>size</th>
-            <th>price</th>
+            <th>credits</th>
             <th>
               <div class="search-container">
                 <form action="#">
@@ -17,22 +16,25 @@
                 </form>
             </th>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>153156</td>
-            <td>grog</td>
-            <td>16</td>
-            <td>8</td>
+      <tbody>
+        {{#each drink_info}}
+        <tr>
+            <td>{{this.drink_id}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.size}}</td>
+             <td>{{this.credits}}</td>
             <td>
-              <button type="submit"><i class="fa fa-trash"></i></button>
-              <button type="submit"><i class="fa fa-edit"></i></button>
+                <button onclick="#" type="button"><i class="fa fa-trash"></i></button>
+                <button onclick="#" type="button"><i class="fa fa-edit"></i></button>
             </td>
-          </tr>
+        </tr>
+        {{/each}}
+    </tbody>
         </table>
       </div>
       <br>
       <div class="w3-container form">
-    <form class=" w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+    <form class=" w3-card-4 w3-padding-16 w3-white" action="/drink" method="POST">
         <div class="w3-section">      
           <label>Order Number</label>
           <input class="w3-input" type="number" name="Name" required>
