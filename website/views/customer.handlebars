@@ -1,64 +1,68 @@
  <br>
   <div class="w3-container">
     <h2>Customers</h2>
-    <table class="w3-table-all">
-      <tr>
-        <th>customer_name</th>
-        <th>galactic_id</th>
-        <th>planet</th>
-        <th>species</th>
-        <th>bounty</th>
-        <th>affiliation</th>
-        <th>orders</th>
-        <th>
-          <div class="search-container">
-            <form action="#">
-              <input type="text" placeholder="Search" name="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </th>
-      </tr>
-      <tr>
-        <td>Han Solo</td>
-        <td>510353510</td>
-        <td>Hoth</td>
-        <td>Humaniod</td>
-        <td>10000</td>
-        <td>affiliation</td>
-        <td>orders</td>
-        <td>
-          <button type="submit"><i class="fa fa-trash"></i></button>
-          <button type="submit"><i class="fa fa-edit"></i></button>
-        </td>
-      </tr>
+    <table class="w3-table-all" id="customer_table">
+      <thead>
+        <tr>
+          <th>customer_name</th>
+          <th>galactic_id</th>
+          <th>planet</th>
+          <th>species</th>
+          <th>bounty</th>
+          <th>
+            <div class="search-container">
+              <form action="/customer/search" method="GET">
+                <select name="row" id="row">
+                  <option value="customer_name">customer_name</option>
+                  <option value="galactic_id">galactic_id</option>
+                  <option value="planet">planet</option>
+                  <option value="species">species</option>
+                  <option value="bounty">bounty</option>
+                </select>
+                <input type="text" placeholder="Search" name="filter">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each customer_info}}
+        <tr>
+            <td>{{this.customer_name}}</td>
+            <td>{{this.galactic_id}}</td>
+            <td>{{this.planet}}</td>
+            <td>{{this.species}}</td>
+            <td>{{this.bounty}}</td>
+            <td>
+                <button onclick="#" type="button"><i class="fa fa-trash"></i></button>
+                <button onclick="#" type="button"><i class="fa fa-edit"></i></button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+
+
     </table>
   </div>
   <br>
   <div class="w3-container form">
-    <form class=" w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+    <form class=" w3-card-4 w3-padding-16 w3-white" action="/customer"  method="POST">
       <div class="w3-section">
         <label>Name</label>
-        <input class="w3-input" type="text" name="Name" required>
+        <input class="w3-input" type="text" name="customer_name" required>
       </div>
       <div class="w3-section">
         <label>Planet</label>
-        <input class="w3-input" type="text" name="Email" required>
+        <input class="w3-input" type="text" name="planet" required>
       </div>
       <div class="w3-section">
         <label>Species</label>
-        <input class="w3-input" type="text" name="Message" required>
+        <input class="w3-input" type="text" name="species" required>
       </div>
       <div class="w3-section">
         <label>Bounty</label>
-        <input class="w3-input" type="number" name="Message" required>
-      </div>
-      <div class="w3-section">
-        <label>Affiliation</label>
-        <input class="w3-input" type="text" name="Message" required>
-      </div>
-      <div class="w3-section">
-        <label>Order</label>
-        <input class="w3-input" type="text" name="Message" required>
+        <input class="w3-input" type="number" name="bounty" required>
       </div>
       <button type="submit" class="w3-button w3-right w3-theme">Send</button>
       <br>

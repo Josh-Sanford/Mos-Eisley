@@ -30,9 +30,7 @@ app.get("/order", function(req, res){
     res.render('order');
 });
 
-app.get("/customer", function(req, res){
-    res.render('customer');
-});
+app.use('/customer', require('./customer.js'));
 
 app.get("/affiliation", function(req, res){
     res.render('affiliation');
